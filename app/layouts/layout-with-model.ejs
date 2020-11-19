@@ -17,12 +17,16 @@
 
   <div class="d-flex h-100">
     <nav class="sidebar d-flex flex-column justify-content-between">
-      <%- include('sidebar') -%>
+      <%- include('components/sidebar', {page: current}) -%>
     </nav>
     <div class="container-fluid container-p-32">
       <%- contents -%>
     </div>
   </div>
+
+  <%- include('components/adminModal', {target: 'newAdminModal'}) -%>
+  <%- include('components/adminModal', {target: 'editAdminModal'}) -%>
+  <%- include('components/adminCard', {target: 'adminCard1'}) -%>
 
 </body>
 </html>

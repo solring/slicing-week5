@@ -45,9 +45,6 @@ $properties: (
 }
 
 /* layouts */
-.row {
-    display: flex;
-}
 
 .row-start-center {
     display: flex;
@@ -104,9 +101,20 @@ $properties: (
     align-items: flex-end;
 }
 
-
-
 .row-wrap {
     display: flex;
     flex-wrap: wrap;
+}
+
+.column-btw-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.column-btw-end{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
 }

@@ -10,7 +10,7 @@
 
 // ------ sidebar ------
 .sidebar {
-    height: 100vh;
+    //height: 100%;
     background: $primary-bg-color;
     flex-shrink: 0;
 }
@@ -33,11 +33,7 @@
     li {
         margin-bottom: 18px;
         
-        &.selected a {
-            border-left: 4px solid $secondary-text-color;
-        }
-
-        a:hover {
+        &.selected a, a:hover {
             color: $secondary-text-color;
             border-left: 4px solid $secondary-text-color;
         }
@@ -60,17 +56,24 @@
     }
 }
 
-// profile pic
+// ----- profile pictures -----
 .profile-pic {
-    width: 40px;
-    height: 40px;
+    @include img-sqrt(40px);
+    flex-shrink: 0;
+}
+
+.profile-pic-lg {
+    @include img-sqrt(140px);
     flex-shrink: 0;
 }
 
 // ----- text editor -----
 .reply-editor {
+    width: 100%;
+    height: 320px;
     textarea {
         border: none;
+        height: 100%;
     }
 }
 
@@ -87,10 +90,20 @@
     }
 }
 
-// assignment
+.btn-group-sqrt{
+    .btn {
+        width: 32px;
+        height: 32px;
+    }
+    .material-icons {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+// ----- customized lists -----
 .assignment-list {
-    width: 320px;
-    flex-shrink: 0;
+    width: 40%;
     .list-group-item {
         padding: 12px;
     }
@@ -100,12 +113,17 @@
     }
 }
 
-.assignment-content {
-    p {
-        font-size: 14px;
-    }
-    .media-body {
-        padding-bottom: 16px;
-        border-bottom: 1px solid $primary-border-color;
-    }
+.reply-thread {
+    font-size: 14px;
+    @include list-w-divider(16px);
+}
+
+.form-w-divider-24 {
+    @include list-w-divider(24px);
+}
+
+// ----- admin modal -----
+.admin-modal-body {
+    height: 70vh;
+    overflow-y: scroll;
 }

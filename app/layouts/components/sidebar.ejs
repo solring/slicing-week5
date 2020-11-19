@@ -1,33 +1,43 @@
+<% 
+  option = {
+    'dashboard': '',
+    'question': '',
+    'assignment': '',
+    'course': '',
+    'admin': '',
+    'setting': '',
+  };
   
-
+  option[page] = "selected";
+%>
   <div class="sidebar-main">
     <div class="sidebar-title logo"></div>
     <ul class="sidebar-list nav flex-column">
-      <li>
-        <a href="">
+      <li class="<%- option['dashboard'] -%>">
+        <a href="#">
           <span class="material-icons">assessment</span>Dashboard
         </a>
       </li>
-      <li>
-        <a href="">
+      <li class="<%- option['question'] -%>">
+        <a href="#">
           <span class="material-icons">question_answer</span>Question
         </a>
       </li>
-      <li class="selected">
-        <a href="">
+      <li class="<%- option['assignment'] -%>">
+        <a href="assignment.html">
           <span class="material-icons">assignment</span>Assignment
         </a>
       </li>
-      <li>
+      <li class="<%- option['course'] -%>">
         <a href="">
           <span class="material-icons">video_library</span>Course
         </a>
       </li>
-      <li>
-        <a href="">
+      <li class="<%- option['admin'] -%>">
+        <a href="admin.html">
           <span class="material-icons">people</span>Admin
         </a></li>
-      <li>
+      <li class="<%- option['setting'] -%>">
         <a href="">
           <span class="material-icons">settings</span>Settings
         </a>

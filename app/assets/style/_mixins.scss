@@ -11,6 +11,20 @@
     }
 }
 
+@mixin list-w-divider($pad) {
+    &>li {
+        padding-bottom: $pad;
+        border-bottom: 1px solid $primary-border-color;
+        margin-bottom: $pad;
+
+        &:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+    }
+}
+
 @mixin list-gap($gap: 0) {
     li {
         margin-bottom: $gap;
@@ -56,6 +70,12 @@
     }
 }
 
+@mixin img-sqrt($size) {
+    object-fit: cover;
+    width: $size;
+    height: $size;
+}
+
 @mixin hideText {
     padding-left: 101%;
     overflow: hidden;
@@ -68,6 +88,7 @@
     }
 }
 
+// ----- RWD -----
 @mixin pad{
     @media screen and (max-width:992px) {
         @content

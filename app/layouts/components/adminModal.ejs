@@ -1,0 +1,122 @@
+<%
+  checkBoxes = [
+    {key: "Lecture", val:"Lecture"},
+    {key: "Coupon", val:"Coupon"},
+    {key: "Message", val:"Message"},
+    {key: "Setting", val:"Setting"},
+    {key: "TaskMenu", val:"Task Menu"},
+  ];
+
+  disabled = "";
+  modalTitle = "";
+  readonly = "";
+  submit = "Add";
+
+  name = "";
+  email = "";
+
+  if (target == 'newAdminModal') {
+    modalTitle = "New Admin";
+  } else if (target == 'editAdminModal') {
+    readonly = "readonly";
+    modalTitle = "Edit Admin";
+    disabled = "disabled";
+    submit = "Update";
+    name = "Emir Wicks";
+    email = "emir.wicks@mail.com";
+  }
+%>
+
+<div id="<%- target -%>" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm card" role="document">
+    <form class="modal-content card-body" target="#" method="post">
+
+      <!-- Header -->
+      <div class="modal-header">
+        <h2 class="modal-title"><%- modalTitle -%></h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body admin-modal-body">
+
+        <ul class="form-w-divider-24 list-unstyled">
+          <!-- form section 1: account -->
+          <li>
+            <h3>Account</h3>
+            <div class="form-group">
+              <label class="col-form-label fz-14" for="adminName">Name</label>
+              <input type="text" class="form-control" id="adminName" name="adminName" <%- readonly -%> value="<%- name -%>">
+            </div>
+            <div class="form-group">
+              <label class="col-form-label fz-14" for="adminEmail">Email</label>
+              <input type="email" class="form-control" id="adminEmail" name="adminEmail" <%- readonly -%> value="<%- email -%> ">
+            </div>
+          </li>
+
+          <!-- form section 2: verification -->
+          <li>
+            <h3>Verification</h3>
+            <div class="d-flex justify-content-between align-items-baseline mb-3">
+              <div>
+              <% if (target == 'editAdminModal') { %>
+                <span class="material-icons align-middle mr-1 emphasised">check_circle</span> Verified
+              <% } else { %>
+                <span class="material-icons warning-color align-middle mr-1">warning</span> Unverified
+              <% } %>
+              </div>
+            <% if (target == 'editAdminModal') { %>
+              <div class="small">2020/4/12</div>
+            <% } %>
+            </div>
+
+            <button type="button" class="btn btn-outline-success btn-block" <%- disabled -%> >Send Verification Mail</button>
+          </li>
+
+          <!-- form section 3: access level -->
+          <li>
+            <h3>Access Level</h3>
+            <select class="custom-select" name="accessLevel" id="accessLevel">
+              <option selected>-Choose access level-</option>
+              <option value="root">Root</option>
+              <option value="g1">Group 1</option>
+              <option value="g2">Group 2</option>
+            </select>
+          </li>
+
+          <!-- form section 4: Custom Access -->
+          <li>
+            <h3>Custom Access</h3>
+          <% for (var i=0; i<checkBoxes.length; i++) { %>
+            <% item = checkBoxes[i]; %>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="<%- item.key -%>Box" name="<%- item.key -%>" value="<%- item.key -%>">
+              <label class="form-check-label" for="<%- item.key -%>Box"><%- item.val -%></label>
+            </div>
+          <% } %> 
+          </li>
+
+        <% if (target == 'editAdminModal') { %> 
+          <!-- form section 5: Deactivate -->
+          <li>
+            <h3>Deactivate Account</h3>
+            <p>
+              <span class="warning-color"><span class="material-icons align-middle mr-1">warning</span> This cannot be undone!</span>
+            </p>
+            <button type="submit" class="btn btn-outline-danger btn-block">
+              Deactivate This Account
+            </button>
+          </li>
+        <% } %> 
+        </ul>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cancel</button>
+        <input type="submit" class="btn btn-success" value="<%- submit -%>"></input>
+      </div>
+      
+    </form>
+  </div>
+</div>

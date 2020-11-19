@@ -8,6 +8,11 @@ img {
     box-sizing: border-box;
 }
 
+// force body to fit the size of window dynamically.
+html, body {
+    height: 100%;
+}
+
 body {
     line-height: $line-height-base;
     font-family: $font-family-base;
@@ -53,6 +58,10 @@ a {
     color: $comment-text-color;
 }
 
+.warning-color {
+    color: $warning-color;
+}
+
 .support-text {
     font-size: 12px;
 }
@@ -63,8 +72,8 @@ a {
     font-family: $font-family-code;
 }
 
-.underline {
-    border-bottom: 1px solid $primary-border-color;
+.emphasised {
+    color: $secondary-text-color;
 }
 
 // Override bootstrap
@@ -82,4 +91,14 @@ a {
         margin-bottom: 0;
         margin-top: 4px;
     }
+}
+
+.table th {
+    padding-bottom: 4px;
+    border-top: none;
+    border-bottom: 1px solid $primary-text-color;
+}
+
+.modal-sm {
+    max-width: 480px;
 }

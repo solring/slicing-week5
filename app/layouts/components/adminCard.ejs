@@ -1,0 +1,44 @@
+<div id="<%- target -%>" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm card">
+      <div class="modal-content card-body">
+        <div class="media">
+          <!-- card img -->
+          <img class="profile-pic-lg mr-3" src="https://hexschool.github.io/webLayoutTraining1st/week5/emir.jpeg" alt="profile picture">
+
+          <div class="media-body">
+            <div class="d-flex justify-content-between">
+              <!-- card left -->
+              <div class="d-flex flex-column justify-content-between">
+                <div>
+                  <p class="mb-1">#1</p>
+                  <p class="mb-0">Admin</p>
+                  <h2 class="mb-1">Emir Wicks</h2>
+                  <p class="comment-color small">emir.wicks@mail.com</p>
+                </div>
+
+                <div>
+                  <span class="badge badge-success">Verified</span>
+                </div>
+              </div>
+
+              <!-- card right -->
+              <div class="d-flex flex-column justify-content-between">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <a href="#" class="material-icons emphasised" data-toggle="collapse" data-target="#adminCardCollapse">keyboard_arrow_down</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Collapse -->
+        <div class="collapse" id="adminCardCollapse">
+          <div class="d-flex justify-content-end mt-4">
+            <button type="button" class="btn btn-outline-danger mr-4">Deactivate</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal" data-toggle=modal data-target="#editAdminModal">Edit</button>
+          </div>
+        </div>
+      </div> 
+       
+  </div>
+</div>
