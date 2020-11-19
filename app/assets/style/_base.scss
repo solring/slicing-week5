@@ -1,0 +1,85 @@
+/* base */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: $line-height-base;
+    font-family: $font-family-base;
+    color: $primary-text-color;
+    @include setFontSize($font-size-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: $line-height-heading;
+}
+
+$headings: (
+    "1": $h1-font-size,
+    "2": $h2-font-size,
+    "3": $h3-font-size,
+    "4": $h4-font-size,
+    "5": $h5-font-size,
+    "6": $h6-font-size,
+);
+
+@each $i, $size in $headings {
+    h#{$i}, .h#{$i} {
+        @include setFontSize($size);
+    }
+}
+
+h1, h5 {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: $primary-text-color;
+    &:hover {
+        text-decoration: none;
+        color: $secondary-text-color;
+    }
+}
+
+
+// Other styles
+.comment-color {
+    color: $comment-text-color;
+}
+
+.support-text {
+    font-size: 12px;
+}
+
+.code {
+    color: $secondary-text-color;
+    background: $primary-bg-color;
+    font-family: $font-family-code;
+}
+
+.underline {
+    border-bottom: 1px solid $primary-border-color;
+}
+
+// Override bootstrap
+.list-group-item.selected{
+    background: $primary-bg-color;
+}
+
+.card-subtitle {
+   font-size: 12px; 
+}
+
+.card-header {
+    background: $primary-bg-color;
+    .card-title {
+        margin-bottom: 0;
+        margin-top: 4px;
+    }
+}

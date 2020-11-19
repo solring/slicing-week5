@@ -1,0 +1,111 @@
+// ------ logo -----
+.logo {
+    content: url($img-src-prefix + "logo-ANSWER.svg");
+}
+
+// ----- container w/ padding -----
+.container-p-32 {
+    padding: 32px 32px;
+}
+
+// ------ sidebar ------
+.sidebar {
+    height: 100vh;
+    background: $primary-bg-color;
+    flex-shrink: 0;
+}
+
+.sidebar-title {
+    padding-left: 32px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.sidebar-list {
+    a {
+        display: block;
+        padding-bottom: 4px;
+        padding-top: 4px;
+        padding-left: 28px; // 32 - 4
+        border-left: 4px solid $primary-bg-color;
+    }
+
+    li {
+        margin-bottom: 18px;
+        
+        &.selected a {
+            border-left: 4px solid $secondary-text-color;
+        }
+
+        a:hover {
+            color: $secondary-text-color;
+            border-left: 4px solid $secondary-text-color;
+        }
+    }
+
+    .material-icons {
+        padding-right: 16px;
+        vertical-align: middle;
+    }
+}
+
+.sidebar-footer {
+    padding-left: 32px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    padding-right: 80px;
+
+    .profile-pic {
+        margin-right: 16px;
+    }
+}
+
+// profile pic
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+// ----- text editor -----
+.reply-editor {
+    textarea {
+        border: none;
+    }
+}
+
+// ----- buttons -----
+.theme-btn {
+    font: normal normal bold 16px/24px Lato;
+    color: $primary-text-color;
+    background: $primary-bg-color;
+    border: 1px solid $primary-border-color;
+    padding: 10px 16px;
+
+    &:hover {
+        background: darken($primary-bg-color, 15%);
+    }
+}
+
+// assignment
+.assignment-list {
+    width: 320px;
+    flex-shrink: 0;
+    .list-group-item {
+        padding: 12px;
+    }
+    h5 {
+        margin-bottom: 0;
+        margin-top: 4px;
+    }
+}
+
+.assignment-content {
+    p {
+        font-size: 14px;
+    }
+    .media-body {
+        padding-bottom: 16px;
+        border-bottom: 1px solid $primary-border-color;
+    }
+}

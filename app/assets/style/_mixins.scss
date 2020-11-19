@@ -1,0 +1,81 @@
+@mixin nav($gap: 0) {
+    display: flex;
+    li {
+        a {
+            display: block; // Essencial. or padding will fail.
+            padding-right: $gap;
+        }
+        &:last-child a{
+            padding-right: 0;
+        }
+    }
+}
+
+@mixin list-gap($gap: 0) {
+    li {
+        margin-bottom: $gap;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@mixin sqrt($width) {
+    display: inline-block;
+    width: $width;
+    height: $width;
+    border-radius: 4px; 
+    margin-right: 8px;
+}
+
+@mixin wrap-n-column-old($n, $gap, $total: 1) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    $ratio: ($total - ($n - 1) * $gap) / ($n * $total); 
+    $width : unquote( $ratio * 100 + '%' );
+    &>li {
+        width: $width;
+    }
+}
+
+@mixin wrap-n-column($n, $gap, $total: 1) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    $ratio: ($total - $n * $gap) / ($n * $total); 
+    $width : unquote( $ratio * 100 + '%' );
+    &>li {
+        @if $n == 1 {
+            width: 100%;
+            margin-right: 0;
+        } @else {
+            width: $width;
+            margin-right: unquote($gap + 'px');
+        }
+    }
+}
+
+@mixin hideText {
+    padding-left: 101%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@mixin hoverOpacity {
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+@mixin pad{
+    @media screen and (max-width:992px) {
+        @content
+    }
+}
+
+@mixin phone{
+    @media screen and (max-width:768px) {
+        @content
+    }
+}

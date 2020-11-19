@@ -1,0 +1,112 @@
+@mixin setFontSize($fz-base) {
+    font-size: $fz-base;
+    @include pad {
+        font-size: $fz-base * 0.75;
+    }
+    @include phone {
+        font-size: $fz-base * 0.5;
+    }
+}
+
+$properties: (
+    "lh" : line-height,
+    "fz" : font-size,
+);
+
+@each $key, $value in $properties {
+    @for $i from 1 through 50 {
+        $size: $i * 2;
+        .#{$key}-#{$size} {
+            #{$value}: #{$size}px;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    @each $key, $value in $properties {
+        @for $i from 1 through 50 {
+            $size: $i * 2;
+            .#{$key}-md-#{$size} {
+                #{$value}: #{$size}px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    @each $key, $value in $properties {
+        @for $i from 1 through 50 {
+            $size: $i * 2;
+            .#{$key}-sm-#{$size} {
+                #{$value}: #{$size}px;
+            }
+        }
+    }
+}
+
+/* layouts */
+.row {
+    display: flex;
+}
+
+.row-start-center {
+    display: flex;
+    align-items: center;
+}
+
+.row-start-end {
+    display: flex;
+    align-items: flex-end;
+}
+
+.row-start-base {
+    display: flex;
+    align-items: baseline;
+}
+
+.row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.row-reverse-center {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.row-btw {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-btw-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.row-btw-end {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.row-btw-baseline {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.row-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+
+
+.row-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
